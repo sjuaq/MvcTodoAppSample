@@ -1,0 +1,56 @@
+﻿
+@{
+    Layout = null;
+    ViewBag.Title = "Add New Task";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@ViewBag.Title</h2>
+                <hr />
+            </div>
+
+            <div class="col-md-12">
+
+                <form method="post" class="form-horizontal" action="/Home/Add">
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Text : </label>
+                        <div class="col-md-10">
+                            <input type="text" name="tasktext" placeholder="enter task text" class="form-control"  maxlength="255" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="control-label col-md-2">Date : </label>
+                        <div class="col-md-10">
+                            <input type="date" name="taskdate" placeholder="gg.aa.yyyy" class="form-control" required/>
+                        </div>
+                    </div>
+
+                    <div class="form-group text-right">
+                        <button type="submit" class="btn btn-success">
+                            <span class="glyphicon glyphicon-floppy-saved"></span> Add
+                        </button>
+                        <a class="btn btn-default" href="/Home/List">Back to list!</a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

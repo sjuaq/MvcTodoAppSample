@@ -1,0 +1,72 @@
+﻿@using MVCTodoAppSample.Models
+@{
+    Layout = null;
+    ViewBag.Title = "Delete Task";
+    Task taskItem = ViewBag.Task as Task;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>@ViewBag.Title</h2>
+                <hr />
+            </div>
+
+            <div class="col-md-12">
+                <h3>Are you sure want to delete this item?</h3>
+                <hr />
+            </div>
+
+            <div class="col-md-12">
+
+                <dl>
+                    <dt>Task Text : </dt>
+                    <dd>@taskItem.Text</dd>
+                </dl>
+
+                <dl>
+                    <dt>Task Date : </dt>
+                    <dd>@taskItem.Date</dd>
+                </dl>
+
+                <dl>
+                    <dt>Task Is Completed : </dt>
+                    <dd>
+                        @if (taskItem.IsCompleted)
+                        {
+                            <span>Tamamlandı</span>
+                        }
+                        else
+                        {
+                            <span>Tamamlanmadı</span>
+                        }
+                    </dd>
+                </dl>
+
+            </div>
+
+            <div class="col-md-12">
+                <form method="post" action="/Home/Delete/@taskItem.Id">
+                    <button type="submit" class="btn btn-danger">
+                        <span class="glyphicon glyphicon-trash"></span> Delete
+                    </button>
+                    <a class="btn btn-default" href="/Home/List">Back to list!</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
